@@ -71,6 +71,7 @@ h1 {
   width: calc(50% - 90px);
   margin: 0 0 0 auto;
   text-align: right;
+  visibility: hidden;
   /* background-color: pink; */
 }
 .parts p {
@@ -78,6 +79,7 @@ h1 {
   width: calc(50% - 90px);
   margin: 0 auto 0 0;
   text-align: left;
+  visibility: hidden;
   /* background-color: yellow; */
 }
 .part1 .image {

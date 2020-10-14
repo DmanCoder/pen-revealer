@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import './App.css';
 
+gsap.registerPlugin(ScrollTrigger);
+
 function App() {
+  // HEIGHT OF FIRST 2 PEN COMPONENTS
+  let penTop = useRef(null);
+
+  useEffect(() => {
+    gsap.set('.part3', {
+      y: () => {
+        return -penTop.current.clientHeight + 22;
+      },
+    });
+  }, []);
+
   return (
     <div className="App">
       <div id="intro">
@@ -45,22 +61,25 @@ function App() {
             </div>
 
             <div class="parts">
-              <div class="part part1">
-                <h3>Heading 1</h3>
-                <div class="image"></div>
-                <p>
-                  Vivamus hendrerit in dui arcu sed erat molestie vehicula.
-                  Nullam in dui mauris.
-                </p>
-              </div>
-              <div class="part part2">
-                ``
-                <h3>Heading 2</h3>
-                <div class="image"></div>
-                <p>
-                  Vivamus hendrerit in dui arcu sed erat molestie vehicula.
-                  Nullam in dui mauris.
-                </p>
+              <div ref={penTop}>
+                <div class="part part1">
+                  <h3>Heading 1</h3>
+                  <div class="image"></div>
+                  <p>
+                    Vivamus hendrerit in dui arcu sed erat molestie vehicula.
+                    Nullam in dui mauris.
+                  </p>
+                </div>
+
+                <div class="part part2">
+                  ``
+                  <h3>Heading 2</h3>
+                  <div class="image"></div>
+                  <p>
+                    Vivamus hendrerit in dui arcu sed erat molestie vehicula.
+                    Nullam in dui mauris.
+                  </p>
+                </div>
               </div>
               <div class="part part3">
                 <h3>Heading 3</h3>
