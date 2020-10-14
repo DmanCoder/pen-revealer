@@ -6,6 +6,8 @@ import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const getTopPartsHeight = (penTop) => penTop.current.clientHeight + 22;
+
 function App() {
   // HEIGHT OF FIRST 2 PEN COMPONENTS
   let penTop = useRef(null);
@@ -13,7 +15,16 @@ function App() {
   useEffect(() => {
     gsap.set('.part3', {
       y: () => {
-        return -penTop.current.clientHeight + 22;
+        return -getTopPartsHeight(penTop);
+      },
+      scrollTrigger: {
+        id: 'pen-body',
+        trigger: '.part3',
+        start: 'top bottom-=270px',
+        end: `+=${getTopPartsHeight(penTop)}`,
+        pin: true,
+        pinSpacing: false,
+        markers: true,
       },
     });
   }, []);
