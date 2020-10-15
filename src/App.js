@@ -29,6 +29,22 @@ function App() {
     });
 
     const partTopOffsets = [547, 722, 842];
+    const allParts = gsap.utils.toArray('.part');
+    allParts.forEach((part, index) => {
+      let startPosition = 'top center';
+
+      if (index === 2) {
+        startPosition = `top+=${getTopPartsHeight(penTop)} center`;
+      }
+
+      gsap.set(part, {
+        scrollTrigger: {
+          trigger: part,
+          toggleClass: 'fade-in',
+          start: startPosition,
+        },
+      });
+    });
 
     gsap.utils
       .toArray(['.part4', '.part5', '.part6'])
@@ -44,7 +60,6 @@ function App() {
             end: `+=${partTopOffsets[index]}`,
             id: 'pen-tip',
             scrub: true,
-            markers: true,
           },
         });
       });

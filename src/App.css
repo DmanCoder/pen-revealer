@@ -71,7 +71,6 @@ h1 {
   width: calc(50% - 90px);
   margin: 0 0 0 auto;
   text-align: right;
-  visibility: hidden;
   /* background-color: pink; */
 }
 .parts p {
@@ -79,7 +78,6 @@ h1 {
   width: calc(50% - 90px);
   margin: 0 auto 0 0;
   text-align: left;
-  visibility: hidden;
   /* background-color: yellow; */
 }
 .part1 .image {
@@ -120,7 +118,7 @@ h1 {
 }
 
 /* =Fade In Text */
-/* .part h3,
+.part h3,
 .part p {
   transition: all 0.3s ease-in;
   opacity: 0;
@@ -137,7 +135,7 @@ h1 {
 }
 .part p {
   transform: translateX(20px);
-} */
+}
 
 /* =Footer */
 .footer-container {
